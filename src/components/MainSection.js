@@ -40,8 +40,16 @@ class MainSection extends Component {
 
   render() {
     return (
-      <BookProvider>
+      <BookProvider value={{ showAuthors: this.state.showAuthors }}>
         <section className="main">
+          <button
+            onClick={() =>
+              this.setState({ showAuthors: !this.state.showAuthors })
+            }
+            style={{ textSize: '14px', margin: '5px', color: 'blue' }}
+          >
+            Toggle authors
+          </button>
           <VisibleBookList
             books={this.state.books}
             updateBookStatus={this.updateBookStatus}
