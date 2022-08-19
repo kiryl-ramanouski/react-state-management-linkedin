@@ -9,10 +9,18 @@ class MainSection extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      books: classicBooks,
+      books: [],
       completedBooks: 0,
     };
     this.updateBookStatus = this.updateBookStatus.bind(this);
+  }
+
+  componentWillMount() {
+    fetch(
+      'https://www.googleapis.com/books/v1/volumes?q=inauthor:jane%20austen'
+    )
+      .then((response) => response.json())
+      .then((myData) => this.setState({ books: myData.items }));
   }
 
   updateBookStatus(bookId, status) {
