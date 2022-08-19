@@ -33,24 +33,28 @@ export default class BookItem extends Component {
 
     const element = (
       <BookConsumer>
-        <div className="view">
-          <input
-            className="toggle"
-            type="checkbox"
-            checked={bookCompleted}
-            onChange={() => this.statusChange()}
-          />
-          <label>{volumeInfo.title}</label>
-          <p
-            style={{
-              fontSize: '12px',
-              textAlign: 'right',
-              marginRight: '10px',
-            }}
-          >
-            Author: {volumeInfo.authors[0]}
-          </p>
-        </div>
+        {({ showAuthors }) => (
+          <div className="view">
+            <input
+              className="toggle"
+              type="checkbox"
+              checked={bookCompleted}
+              onChange={() => this.statusChange()}
+            />
+            <label>{volumeInfo.title}</label>
+            {showAuthors ? (
+              <p
+                style={{
+                  fontSize: '12px',
+                  textAlign: 'right',
+                  marginRight: '10px',
+                }}
+              >
+                Author: {volumeInfo.authors[0]}
+              </p>
+            ) : null}
+          </div>
+        )}
       </BookConsumer>
     );
 
