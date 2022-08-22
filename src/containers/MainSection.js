@@ -4,7 +4,12 @@ import { bindActionCreators } from 'redux';
 import MainSection from '../components/MainSection';
 import { getCompletedTodoCount } from '../selectors';
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => {
+  return {
+    books: state.books.books,
+    completedBooks: state.books.completedBooks,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(TodoActions, dispatch),
