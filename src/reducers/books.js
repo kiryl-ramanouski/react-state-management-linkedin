@@ -17,15 +17,16 @@ const initialState = {
 
 export default function todos(state = initialState, action) {
   switch (action.type) {
-    case UPDATE_BOOK:
+    case UPDATE_BOOK: {
       return {
         ...state,
-        book: state.books.map((book) => {
-          book.id === action.id
+        books: state.books.map((book) => {
+          return book.id === action.id
             ? { ...book, completed: !book.completed }
             : book;
         }),
       };
+    }
     default:
       return state;
   }
