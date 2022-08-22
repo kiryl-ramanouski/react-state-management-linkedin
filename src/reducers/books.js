@@ -5,6 +5,7 @@ import {
   COMPLETE_TODO,
   COMPLETE_ALL_TODOS,
   CLEAR_COMPLETED,
+  UPDATE_BOOK,
 } from '../constants/ActionTypes';
 
 import classicBooks from '../constants/books';
@@ -16,6 +17,15 @@ const initialState = {
 
 export default function todos(state = initialState, action) {
   switch (action.type) {
+    case UPDATE_BOOK:
+      return {
+        ...state,
+        book: state.books.map((book) => {
+          book.id === action.id
+            ? { ...book, completed: !book.completed }
+            : book;
+        }),
+      };
     default:
       return state;
   }
