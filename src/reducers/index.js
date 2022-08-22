@@ -1,10 +1,10 @@
-import { combineReducers } from 'redux'
-import todos from './todos'
-import visibilityFilter from './visibilityFilter'
+import { combineReducers } from 'redux';
+import books from './books';
+import visibilityFilter from './visibilityFilter';
 
 const rootReducer = combineReducers({
-  todos,
-  visibilityFilter
-})
+  books,
+  visibilityFilter,
+});
 
-export default rootReducer
+export default rootReducer;

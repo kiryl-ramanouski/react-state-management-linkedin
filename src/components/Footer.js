@@ -16,23 +16,26 @@ const Footer = (props) => {
   const { activeCount } = props;
   const itemWord = activeCount === 1 ? 'book' : 'books';
   const [goalBooks, updateGoalBooks] = useState(0);
+
   return (
     <footer className="footer">
       <span className="todo-count">
-        <strong>{activeCount || 'No'}</strong> {itemWord} left to read out of
+        <strong>{activeCount || 'No'}</strong> {itemWord} left to read out of{' '}
         {goalBooks} books
       </span>
       <button
         onClick={() => updateGoalBooks(goalBooks + 1)}
         style={{ textSize: '14px', margin: '5px', color: 'blue' }}
       >
-        Increment
+        {' '}
+        Increment{' '}
       </button>
       <button
         onClick={() => updateGoalBooks(goalBooks - 1)}
         style={{ textSize: '14px', margin: '5px', color: 'blue' }}
       >
-        Decrement
+        {' '}
+        Decrement{' '}
       </button>
     </footer>
   );

@@ -53,7 +53,8 @@ class MainSection extends Component {
             }
             style={{ textSize: '14px', margin: '5px', color: 'blue' }}
           >
-            Toggle authors
+            {' '}
+            Toggle authors{' '}
           </button>
           <VisibleBookList
             books={this.state.books}
